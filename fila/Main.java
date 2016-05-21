@@ -43,17 +43,22 @@ public class Main {
 		String entrada="";
 		
 		listadoble.Nodo  apuntador=lista.inicio;
+		listadoble.Nodo  apuntadorfinal=lista.inicio;
+		//listadoble.Nodo apuntador=lista.final;
 		System.out.println("Inicio: "+ apuntador);
 		
 		while(!sc.equals("x")){
 			entrada=sc.nextLine();
 			
-			listadoble.Nodo inicio = null;
+			
 			if(entrada.equals("a")){
 				
 				if(apuntador.anterior==null){
-					inicio=apuntador.anterior;
+					
 					System.out.println("Nodo: "+ apuntador+ " es el inicio de la lista");
+					apuntador=(apuntadorfinal);
+					
+					System.out.println("el anterior es: " + apuntador);
 				}
 				else{
 					apuntador=apuntador.anterior;
@@ -63,8 +68,11 @@ public class Main {
 			else if(entrada.equals("s")){
 				
 				if(apuntador.siguiente==null){
+					apuntadorfinal=apuntador;
 					System.out.println("Nodo: "+ apuntador+ " es el fin de la lista");
-					//apuntador.siguiente=inicio;
+					apuntador.siguiente=(apuntador=lista.inicio);
+					System.out.println("el siguiente es: " + apuntador);
+					
 				}
 				else{
 					apuntador=apuntador.siguiente;
